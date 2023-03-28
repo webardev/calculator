@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Alkatra', cursive;
+    background-color: rgb(235, 235, 235);
+}
+
+
+.text-center{
+    text-align: center;
+
+}
+
+
+.container{
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+}
+
+
+.opt-color {
+    background-color: orange;
+    color: white;
+    font-weight: 900;
+}
+
+.row .btn{
+   padding: 15px;
+   margin: 5px;
+   cursor: pointer;
+   width: 3rem;
+   font-size: 1rem;
+   border: none;
+   border-radius: 10px;
+   transition: 0.3s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+.btn:active{
+    transform: none;
+}
+
+
+
+.btn-n{
+background-color: #333333;
+    color: white;
+}
+.btn-n:hover{
+    background-color: #5a5a5a;
+}
+
+.btn-e{
+    background-color: rgb(167, 167, 167);
+        color: white;
+}
+
+
+.input{
+    width: 13.7rem;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 3rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+   background-color: #333333;
+   color: white;
+   overflow: scroll;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+    <h1 class="text-center">Calculator by Webar</h1>
+    <div class="container">
+        <div class="row">
+            <input class="input" type="text">
+        </div>
+        <div class="row">
+            <button class="btn btn-e">C</button>
+            <button class="btn btn-e">AC</button>
+            <button class="btn btn-e">%</button>
+            <button class="btn opt-color">/</button>
+        </div>
+        <div class="row">
+            <button class="btn btn-n">7</button>
+            <button class="btn btn-n">8</button>
+            <button class="btn btn-n">9</button>
+            <button class="btn opt-color ">*</button>
+        </div>
+        <div class="row">
+            <button class="btn btn-n">6</button>
+            <button class="btn btn-n">5</button>
+            <button class="btn btn-n">4</button>
+            <button class="btn opt-color">-</button>
+        </div>
+        <div class="row">
+            <button class="btn btn-n">3</button>
+            <button class="btn btn-n">2</button>
+            <button class="btn btn-n">1</button>
+            <button class="btn opt-color">+</button>
+        </div>
+        <div class="row">
+            <button class="btn btn-n">0</button>
+            <button class="btn btn-n">00</button>
+            <button class="btn btn-n">.</button>
+            <button class="btn opt-color">=</button>
+        </div>
+
+    </div>
+
+    <script>
+        let string = ""
+            let btns = document.querySelectorAll('.btn');
+            let mode = document.querySelector('.mode')
+            let cal = document.querySelector('.container')
+
+
+
+            Array.from(btns).forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    if (e.target.innerHTML == '=') {
+                        string = eval(string);
+                        document.querySelector('input').value = string;
+                    }
+
+                    else if (e.target.innerHTML == 'C') {
+                        string = ""
+                        document.querySelector('input').value = string;
+                    }
+                    else if (e.target.innerHTML == 'AC') {
+                        string = ""
+                        document.querySelector('input').value = string;
+                    }
+
+
+                    else {
+                        console.log(e.target)
+                        string = string + e.target.innerHTML;
+                        document.querySelector('input').value = string;
+                    }
+                })
+            })
+    </script>
+</body>
+</html>
